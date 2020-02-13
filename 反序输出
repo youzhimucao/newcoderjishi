@@ -1,0 +1,16 @@
+题目描述：任意输出四个字符，并按反序输出
+思路：从后往前输入
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char a[100];
+    int i;
+    while(scanf("%s",a)!=EOF)
+    {
+        for(i=strlen(a)-1;i>=0;i--)
+            printf("%c",a[i]);
+        printf("\n");
+    }
+    return 0;
+}
