@@ -1,0 +1,47 @@
+						查找和排序
+//描述：输入任意（用户，成绩）序列，可以获得成绩从高到低和从低到高的排列
+//输入描述：输入多行，先输入要排序的人的个数，然后输入排序方法0（降序）或者1（升序）再分别输入他们的名字和成绩，以一个空格隔开
+
+#include<stdio.h>
+int main()
+{
+    typedef struct sc
+    {
+        char name[100];
+        int score;
+    }sc;
+    sc sc1[1000];
+    int i,j,k,order,fen;
+    sc scc;
+    char a[100];
+    while(scanf("%d%d",&i,&order)!=EOF)
+    {
+        for(j=0;j<i;j++)
+            scanf("%s%d",sc1[j].name,&sc1[j].score);
+        if(order==0)
+            for(j=0;j<i;j++)
+                for(k=0;k<i-j-1;k++)
+                if(sc1[k].score<sc1[k+1].score)
+            {
+                scc=sc1[k];
+                sc1[k]=sc1[k+1];
+                sc1[k+1]=scc;
+            }
+                else ;
+        else
+            for(j=0;j<i;j++)
+                for(k=0;k<i-j-1;k++)
+                if(sc1[k].score>sc1[k+1].score)
+            {
+                scc=sc1[k];
+                sc1[k]=sc1[k+1];
+                sc1[k+1]=scc;
+            }
+            else ;
+        for(j=0;j<i;j++)
+            printf("%s %d\n",sc1[j].name,sc1[j].score);
+
+    }
+    return 0;
+}
+//其中 while(scanf("%d%d",&i,&order)!=EOF)  输入整数会被赋值给循环变量，那么scanf的返回值为1，不为EOF（-1），循环条件成立，进入循环体
