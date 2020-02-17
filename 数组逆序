@@ -1,0 +1,24 @@
+#include<stdio.h>
+//将一个整型数组的数据逆序重新存放，并打印
+int main()
+{
+    int a[10],i,temp;
+
+    printf("请输入10个数:\n");
+    for(i=0;i<10;i++)
+        scanf("%d",&a[i]);
+    for(i=0;i<5;i++)
+    {
+        temp=a[i];
+        a[i]=a[9-i];
+        a[9-i]=temp;
+
+    }
+    printf("逆序列为:\n");
+    for(i=0;i<10;i++)
+        printf("%d ",a[i]);
+    printf("\n");
+}
+
+//思路：定义整型数组a，用来存储输入。取输入数据长度的一半，用for循环，依次将第一位和最后一位互换，
+第二位和倒数第二位互换
