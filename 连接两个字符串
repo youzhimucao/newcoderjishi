@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include<string.h>
+//将两个字符串连起来
+int main()
+{
+    char str1[50],str2[50];
+    char str[100];
+    int i,len1,len2;
+
+    printf("请输入字符串 1：\n");
+    scanf("%s",str1);
+    printf("请输入字符串2:\n");
+    scanf("%s",str2);
+
+    len1=strlen(str1);//获得str1的长度
+    len2=strlen(str2);
+
+    for(i=0; i<len1; i++)
+        str[i]=str1[i];//将str1赋给str
+    for(i=len1; i<len1+len2;i++)
+        str[i]=str2[i-len1];
+
+    printf("连接后的字符串为：\n");
+    for(i=0;i<len1+len2;i++)
+        printf("%c",str[i]);
+    printf("\n");
+
+    
+}
